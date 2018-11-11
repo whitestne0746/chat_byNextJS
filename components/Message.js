@@ -9,17 +9,11 @@ export default function Message(props) {
       </div>
       <style jsx>{`
         .contents {
-          display: flex;
-          display: -moz-flex;
-          display: -o-flex;
-          display: -webkit-flex;
-          display: -ms-flex;
-          flex-direction: row;
-          -moz-flex-direction: row;
-          -o-flex-direction: row;
-          -webkit-flex-direction: row;
-          -ms-flex-direction: row;
-          float: right;
+          overflow: hidden;
+          margin: 10px;
+        }
+        .userIcon {
+          float: left;
         }
         .messageBox {
           background-color: #332aa3;
@@ -33,7 +27,7 @@ export default function Message(props) {
           padding: 10px;
           margin: 10px;
           box-shadow: 3px 3px 4px  rgba(0,0,0,0.3);
-          float: right;
+          float: left;
         }
       `}</style>
     </div>

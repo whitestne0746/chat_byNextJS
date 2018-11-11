@@ -13,13 +13,16 @@ export default class MessageList extends Component {
         }
         <style jsx>{`
           .messages {
+            border: 1px solid #aaa;
             overflow: auto;
             width: 50%;
             height: 70vh;
-            position: relative;
-            margin-left: auto;
-            margin-right: auto;
-            top: 12%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            margin: auto;
           }
         `}</style>
       </div>
