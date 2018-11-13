@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import NameForm from './NameForm'
 import MessageForm from './MessageForm'
 import MessageList from './MessageList'
-// import io from 'socket.io-client'
+import io from 'socket.io-client'
 
 export default class App extends Component {
   constructor(props) {
@@ -14,12 +14,23 @@ export default class App extends Component {
     }
     this.sendMessage = this.sendMessage.bind(this)
     this.submitUser = this.submitUser.bind(this)
+
+    this.socket = io('localhost:8080')
+
+    this.socket.on('RECEIVE_MESSAGE', (data) => { // ③
+      // メッセージ受信時に実行したいことを記述
+    })
   }
 
   sendMessage({ inputMessage }) {
     const messages = this.state.messages
 
     messages.push({
+      text: inputMessage,
+      userName: this.state.userName,
+    })
+
+    this.socket.emit('SEND_MESSAGE', {
       text: inputMessage,
       userName: this.state.userName,
     })
