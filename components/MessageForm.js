@@ -40,7 +40,7 @@ export default class MessageForm extends Component {
           #message {
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 2px 7px;
+            padding: 0.5% 1%;
             background: #fff;
             outline: 0;
             width: 85%;
@@ -50,7 +50,7 @@ export default class MessageForm extends Component {
             margin: 1%;
             border: 1px solid #fff;
             border-radius: 5px;
-            padding: 2px 7px;
+            padding: 0.5% 1%;
             outline: 0;
             background: white;
             width: 10%;

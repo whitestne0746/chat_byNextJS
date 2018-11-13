@@ -17,8 +17,10 @@ export default class App extends Component {
 
     this.socket = io('localhost:8080')
 
-    this.socket.on('RECEIVE_MESSAGE', (data) => { // ③
-      // メッセージ受信時に実行したいことを記述
+    this.socket.on('RECEIVE_MESSAGE', (messages) => {
+      this.setState({
+        messages,
+      })
     })
   }
 
@@ -35,9 +37,9 @@ export default class App extends Component {
       userName: this.state.userName,
     })
 
-    this.setState({
-      messages,
-    })
+    // this.setState({
+    //   messages,
+    // })
   }
 
   submitUser({ name }) {

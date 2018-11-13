@@ -19,7 +19,7 @@ export default class MessageList extends Component {
     return (
       <div className="messages">
         <div className="date">
-          {'-------------- ' + month + '月' + day + '日' + ' --------------'}
+          {`-------------- ${month}月${day}日 --------------`}
         </div>
         {
           this.props.message.map((m, i) => {
@@ -29,7 +29,7 @@ export default class MessageList extends Component {
         <style jsx>{`
           .date {
             width: 95%;
-            margin: 15px;
+            margin: 1%;
             padding: auto;
           }
           .messages {

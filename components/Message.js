@@ -29,7 +29,7 @@ export default function Message(props) {
             float: right;
           }
           .userName {
-            font-size: 8px,
+            font-size: 0.7rem,
             word-wrap: break-word;
           }
           .messageBox {
@@ -40,16 +40,16 @@ export default function Message(props) {
             text-align: left;
             word-wrap: break-word;
             min-width: 0;
-            max-width: 400px;
-            padding: 10px;
-            margin: 10px;
+            max-width: 75%;
+            padding: 1%;
+            margin: 1%;
             box-shadow: 3px 3px 4px  rgba(0,0,0,0.3);
             float: right;
           }
           .time {
             float: right;
-            font-size: 15px;
-            margin: 10px;
+            font-size: 1rem;
+            margin: 1%;
             text-align: center;
           }
         `}</style>
@@ -79,7 +79,7 @@ export default function Message(props) {
             float: left;
           }
           .userName {
-            font-size: 8px,
+            font-size: 0.7rem,
             word-wrap: break-word;
           }
           .messageBox {
@@ -90,16 +90,16 @@ export default function Message(props) {
             text-align: left;
             word-wrap: break-word;
             min-width: 0;
-            max-width: 400px;
-            padding: 10px;
-            margin: 10px;
+            max-width: 75%;
+            padding: 1%;
+            margin: 1%;
             box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
             float: left;
           }
           .time {            
             float: left;
-            font-size: 15px;
-            margin: 10px;
+            font-size: 1rem;
+            margin: 1%;
             text-align: center;
           }
         `}</style>
