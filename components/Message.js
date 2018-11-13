@@ -1,35 +1,109 @@
-import React from 'react'
+import React, { Component } from 'react'
+
+let name = ''
 
 export default function Message(props) {
-  return (
-    <div className="contents">
-      <div className="userIcon"><img src="../picture/icon.svg" width="40" height="40" /></div>
-      <div className="messageBox">
-        {props.message}
+  name = props.name
+  if (props.message.userName !== name) {
+    name = props.message.userName
+    return (
+      <div className="contents">
+        <div className="user">
+          <div className="userIcon"><img src="../picture/icon.svg" width="60" height="60" /></div>
+          <span className="userName">{name}</span>
+        </div>
+        <div className="messageBox">
+          {props.message.text}
+        </div>
+        <div className="time">
+          <p>{props.time.hour + ':' + props.time.minute}</p>
+        </div>
+        <style jsx>{`
+          .contents {
+            overflow: hidden;
+            margin: 1%;
+            padding: 1%;
+            width: 95%;
+          }
+          .user {
+            float: right;
+          }
+          .userName {
+            font-size: 8px,
+            word-wrap: break-word;
+          }
+          .messageBox {
+            background-color:#7f8184;
+            color: #ffffff;
+            border-radius: 1.0em 0em 1.0em 1.0em/1.0em 0em 1.0em 1.0em;
+            opacity: 1;
+            text-align: left;
+            word-wrap: break-word;
+            min-width: 0;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 3px 3px 4px  rgba(0,0,0,0.3);
+            float: right;
+          }
+          .time {
+            float: right;
+            font-size: 15px;
+            margin: 10px;
+            text-align: center;
+          }
+        `}</style>
       </div>
-      <style jsx>{`
-        .contents {
-          overflow: hidden;
-          margin: 10px;
-        }
-        .userIcon {
-          float: left;
-        }
-        .messageBox {
-          background-color: #332aa3;
-          color: #ffffff;
-          border-radius: 0em 1.0em 1.0em 1.0em/0em 1.0em 1.0em 1.0em;
-          opacity: 1;
-          text-align: left;
-          word-wrap: break-word;
-          min-width: 0;
-          max-width: 400px;
-          padding: 10px;
-          margin: 10px;
-          box-shadow: 3px 3px 4px  rgba(0,0,0,0.3);
-          float: left;
-        }
-      `}</style>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div className="contents">
+        <div className="user">
+          <div className="userIcon"><img src="../picture/icon.svg" width="60" height="60" /></div>
+          <span className="userName">{props.message.userName}</span>
+        </div>
+        <div className="messageBox">
+          {props.message.text}
+        </div>
+        <div className="time">
+          {props.time.hour + ' : ' + props.time.minute}
+        </div>
+        <style jsx>{`
+          .contents {
+            overflow: hidden;
+            margin: 1%;
+            padding: 1%;
+            width: 95%;
+          }
+          .user {
+            float: left;
+          }
+          .userName {
+            font-size: 8px,
+            word-wrap: break-word;
+          }
+          .messageBox {
+            background-color: #332aa3;
+            color: #ffffff;
+            border-radius: 0em 1.0em 1.0em 1.0em/0em 1.0em 1.0em 1.0em;
+            opacity: 1;
+            text-align: left;
+            word-wrap: break-word;
+            min-width: 0;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
+            float: left;
+          }
+          .time {            
+            float: left;
+            font-size: 15px;
+            margin: 10px;
+            text-align: center;
+          }
+        `}</style>
+      </div>
+    )
+  }
 }

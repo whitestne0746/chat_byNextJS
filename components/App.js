@@ -9,38 +9,33 @@ export default class App extends Component {
     super(props)
     this.state = {
       messages: [],
-      Number: 1,
-      Name: '',
+      text: '',
+      userName: '',
     }
     this.sendMessage = this.sendMessage.bind(this)
     this.submitUser = this.submitUser.bind(this)
   }
 
   sendMessage({ inputMessage }) {
-    const {
-      messages, Number, Name,
-    } = this.state
+    const messages = this.state.messages
 
     messages.push({
-      message: inputMessage,
-      number: Number,
-      name: Name,
+      text: inputMessage,
+      userName: this.state.userName,
     })
 
     this.setState({
       messages,
-      Number: Number + 1,
     })
   }
 
   submitUser({ name }) {
-    if (name !== this.state.Name) {
+    if (name !== this.state.userName) {
       console.log('名前が変わりました')
     }
     this.setState({
-      Name: name,
+      userName: name,
     })
-    console.log(this.state)
   }
 
   render() {
@@ -48,7 +43,7 @@ export default class App extends Component {
       <div className="app">
         <h1 className="title">chat room</h1>
         <NameForm submitUser={this.submitUser} />
-        <MessageList className="ML" messages={this.state.messages} />
+        <MessageList message={this.state.messages} name={this.state.userName} />
         <MessageForm sendMessage={this.sendMessage} />
         <style jsx>{`
           h1 {
@@ -56,7 +51,7 @@ export default class App extends Component {
           }
           .app {
             width: 95%;
-            height: 95vh;
+            height: 95%;
           }
           .title {
             width: 100%;
