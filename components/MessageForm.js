@@ -25,7 +25,7 @@ export default class MessageForm extends Component {
   render() {
     return (
       <form className="form" onSubmit={this.buttonClick}>
-        <input id="message" placeholder="入力してください" value={this.state.message} onChange={this.typeMessage} />
+        <input id="message" placeholder="入力してください" value={this.state.inputMessage} onChange={this.typeMessage} />
         <button id="send" type="submit">send</button>
         <style jsx>{`
           .form {

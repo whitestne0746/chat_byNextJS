@@ -2,45 +2,51 @@ import React, { Component } from 'react'
 import NameForm from './NameForm'
 import MessageForm from './MessageForm'
 import MessageList from './MessageList'
-// import io from 'socket.io-client'
+import io from 'socket.io-client'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       messages: [],
-      Number: 1,
-      Name: '',
+      text: '',
+      userName: '',
     }
     this.sendMessage = this.sendMessage.bind(this)
     this.submitUser = this.submitUser.bind(this)
+
+    this.socket = io('localhost:8080')
+
+    this.socket.on('RECEIVE_MESSAGE', (data) => { // ③
+      // メッセージ受信時に実行したいことを記述
+    })
   }
 
   sendMessage({ inputMessage }) {
-    const {
-      messages, Number, Name,
-    } = this.state
+    const messages = this.state.messages
 
     messages.push({
-      message: inputMessage,
-      number: Number,
-      name: Name,
+      text: inputMessage,
+      userName: this.state.userName,
+    })
+
+    this.socket.emit('SEND_MESSAGE', {
+      text: inputMessage,
+      userName: this.state.userName,
     })
 
     this.setState({
       messages,
-      Number: Number + 1,
     })
   }
 
   submitUser({ name }) {
-    if (name !== this.state.Name) {
+    if (name !== this.state.userName) {
       console.log('名前が変わりました')
     }
     this.setState({
-      Name: name,
+      userName: name,
     })
-    console.log(this.state)
   }
 
   render() {
@@ -48,7 +54,7 @@ export default class App extends Component {
       <div className="app">
         <h1 className="title">chat room</h1>
         <NameForm submitUser={this.submitUser} />
-        <MessageList className="ML" messages={this.state.messages} />
+        <MessageList message={this.state.messages} name={this.state.userName} />
         <MessageForm sendMessage={this.sendMessage} />
         <style jsx>{`
           h1 {
@@ -56,7 +62,7 @@ export default class App extends Component {
           }
           .app {
             width: 95%;
-            height: 95vh;
+            height: 95%;
           }
           .title {
             width: 100%;
