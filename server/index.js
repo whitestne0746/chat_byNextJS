@@ -8,9 +8,8 @@ server = app.listen(8080, () => {
 
 io = socket(server)
 
-const messages = []
-
 io.on('connection', (socket) => {
+  const messages = []
   console.log('socket.id', socket.id)
   socket.on('SEND_MESSAGE', (data) => {
     console.log(data)

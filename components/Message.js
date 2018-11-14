@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 let name = ''
 
@@ -9,7 +9,7 @@ export default function Message(props) {
     return (
       <div className="contents">
         <div className="user">
-          <div className="userIcon"><img src="../picture/icon.svg" width="60" height="60" /></div>
+          <div className="userIcon"><img src="../static/picture/icon.svg" width="60" height="60" /></div>
           <span className="userName">{name}</span>
         </div>
         <div className="messageBox">
@@ -59,7 +59,7 @@ export default function Message(props) {
     return (
       <div className="contents">
         <div className="user">
-          <div className="userIcon"><img src="../picture/icon.svg" width="60" height="60" /></div>
+          <div className="userIcon"><img src="../static/picture/icon.svg" width="60" height="60" /></div>
           <span className="userName">{props.message.userName}</span>
         </div>
         <div className="messageBox">

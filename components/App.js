@@ -44,7 +44,7 @@ export default class App extends Component {
 
   submitUser({ name }) {
     if (name !== this.state.userName) {
-      console.log('名前が変わりました')
+      console.log('changed name')
     }
     this.setState({
       userName: name,
@@ -55,8 +55,8 @@ export default class App extends Component {
     return (
       <div className="app">
         <h1 className="title">chat room</h1>
-        <NameForm submitUser={this.submitUser} />
         <MessageList message={this.state.messages} name={this.state.userName} />
+        <NameForm submitUser={this.submitUser} />
         <MessageForm sendMessage={this.sendMessage} />
         <style jsx>{`
           h1 {

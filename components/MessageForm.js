@@ -36,6 +36,7 @@ export default class MessageForm extends Component {
             width: 50%;
             left: 50%;
             transform:translateX(-50%);
+            margin: auto;
           }
           #message {
             border: 1px solid #ccc;

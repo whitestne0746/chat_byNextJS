@@ -24,28 +24,34 @@ export default class NameForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.buttonClick}>
+      <form className="form" onSubmit={this.buttonClick}>
         <input id="name" placeholder="name" value={this.state.name} onChange={this.typeName} />
         <button id="submit">submit</button>
         <style jsx>{`
-          form {
-            position: relative;
-            left: 20px;
-            top: 20%;
+          .form {
+            position: absolute;
+            bottom: 5%;
+            width: 30%;
+            left: 62%;
+            padding: 0;
+            transform:translateX(-50%);
+            text-align: center;
+            margin: 1%;
           }
-          input {
+          #name {
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 2px 8px;
+            padding: 2%;
+            margin: 1%;
             background: none;
             outline: 0;
-            width: 100px;
+            width: 60%;
           }
           #submit {
             margin: 1%;
             border: 1px solid #00f;
             border-radius: 5px;
-            padding: 2px 7px;
+            padding: 2%;
             outline: 0;
             color: white;
             background: blue;
